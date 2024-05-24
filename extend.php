@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Blomstra\\SaveSortingPreferences;
+namespace Blomstra\SaveSortingPreferences;
 
 use Flarum\Extend;
 
@@ -21,4 +21,7 @@ return [
         ->js(__DIR__.'/js/dist/admin.js')
         ->css(__DIR__.'/less/admin.less'),
     new Extend\Locales(__DIR__.'/locale'),
+    (new Extend\Middleware('forum'))->add(ApplyUserSortingMiddleware::class),
+    (new Extend\Middleware('api'))->add(ApplyUserSortingMiddleware::class),
+    (new Extend\User)->registerPreference('discussion_sort'),
 ];
