@@ -1,4 +1,4 @@
-# Blomstra-save-sorting-preferences
+# Save Sorting Preferences
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/blomstra/save-sorting-preferences.svg)](https://packagist.org/packages/blomstra/save-sorting-preferences) [![Total Downloads](https://img.shields.io/packagist/dt/blomstra/save-sorting-preferences.svg)](https://packagist.org/packages/blomstra/save-sorting-preferences)
 

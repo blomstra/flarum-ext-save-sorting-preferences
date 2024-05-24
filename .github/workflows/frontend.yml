@@ -1,4 +1,4 @@
-name: Blomstra-save-sorting-preferences JS
+name: Save Sorting Preferences JS
 
 on: [workflow_dispatch, push, pull_request]
 

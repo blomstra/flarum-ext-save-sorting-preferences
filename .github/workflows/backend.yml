@@ -1,4 +1,4 @@
-name: Blomstra-save-sorting-preferences PHP
+name: Save Sorting Preferences PHP
 
 on: [workflow_dispatch, push, pull_request]
 
