@@ -25,7 +25,7 @@ class ApplyUserSortingMiddleware implements MiddlewareInterface
 
         if ($sort = $request->getQueryParams()['sort']) {
             $actor->setPreference('discussion_sort', $sort);
-            $actor->save();
+            $actor->isDirty() && $actor->save();
 
             return $handler->handle($request);
         }
