@@ -39,10 +39,10 @@ app.initializers.add('blomstra/save-sorting-preferences', () => {
           const label = sortOptions[value];
           const active = (sort || Object.keys(sortMap)[0]) === value;
 
-          function handleClick () {
-            app.search.changeSort.bind(app.search, value)()
+          function handleClick() {
+            app.search.changeSort.bind(app.search, value)();
 
-            sort = value
+            sort = value;
           }
 
           return (
