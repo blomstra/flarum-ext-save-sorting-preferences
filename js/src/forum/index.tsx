@@ -8,6 +8,10 @@ import Button from 'flarum/common/components/Button';
 app.initializers.add('blomstra/save-sorting-preferences', () => {
   let sort = app.search.params().sort;
 
+  if (!app.data.session.userId) {
+    return;
+  }
+
   if (!sort) {
     m.request({
       method: 'GET',
