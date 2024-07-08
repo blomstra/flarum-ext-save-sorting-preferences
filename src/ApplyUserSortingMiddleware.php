@@ -27,11 +27,6 @@ class ApplyUserSortingMiddleware implements MiddlewareInterface
         $sort = Arr::get($request->getQueryParams(), 'sort');
         $lastSelectedSort = $actor->getPreference('discussion_sort');
 
-        if ($sort && $sort !== $lastSelectedSort) {
-            $actor->setPreference('discussion_sort', $sort);
-            $actor->save();
-        }
-
         return $handler->handle($request->withQueryParams([
             'sort' => $sort ?? $lastSelectedSort,
         ]));
