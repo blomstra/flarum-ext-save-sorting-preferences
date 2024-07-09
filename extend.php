@@ -17,9 +17,6 @@ use Flarum\Extend;
 return [
     new Extend\Locales(__DIR__.'/locale'),
 
-    (new Extend\Routes('api'))
-        ->get('/sorting-preference', 'sorting-preferences.show', ShowUserPreferredSortingController::class),
-
     (new Extend\Middleware('forum'))->add(ApplyUserSortingMiddleware::class),
 
     (new Extend\Middleware('api'))->add(ApplyUserSortingMiddleware::class),

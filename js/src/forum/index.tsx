@@ -12,20 +12,13 @@ app.initializers.add('blomstra/save-sorting-preferences', () => {
     return;
   }
 
-  if (!sort) {
-    m.request({
-      method: 'GET',
-      url: '/api/sorting-preference',
-    }).then((response) => {
-      sort = response.data.attributes.sort;
-
-      m.redraw();
-    });
-  }
-
   override(IndexPage.prototype, 'viewItems', function (this, user) {
     const items = new ItemList();
     const sortMap = app.discussions.sortMap();
+
+    if (!sort) {
+      sort = app.session.user?.preferences()?.['discussion_sort'];
+    }
 
     const sortOptions = Object.keys(sortMap).reduce((acc: any, sortId) => {
       acc[sortId] = app.translator.trans(`core.forum.index_sort.${sortId}_button`);
@@ -45,8 +38,8 @@ app.initializers.add('blomstra/save-sorting-preferences', () => {
 
           function handleClick() {
             app.search.changeSort.bind(app.search, value)();
-
             sort = value;
+            app.session.user?.savePreferences({ discussion_sort: value });
           }
 
           return (
